@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Comic_Neue, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "./components/Providers";
-import FaviconUpdater from "./components/FaviconUpdater";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,8 +27,19 @@ export const metadata: Metadata = {
     "Full-stack software developer building thoughtful, responsive products with React, Next.js, Node.js, APIs, and modern web technologies.",
   metadataBase: new URL("https://jamalferguson.dev"),
   icons: {
-    icon: [{ url: faviconDataUrl, type: "image/png", sizes: "32x32" }],
-    shortcut: faviconDataUrl,
+    icon: [
+      {
+        url: "/jf-favicon-32.png?v=20261118",
+        type: "image/png",
+        sizes: "32x32",
+      },
+      {
+        url: "/jf-favicon-64.png?v=20261118",
+        type: "image/png",
+        sizes: "64x64",
+      },
+    ],
+    shortcut: "/favicon.ico?v=20261118",
     apple: [
       {
         url: "/portfolio-logo-touch-v2.png",
@@ -73,7 +83,6 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
     >
       <body>
-        <FaviconUpdater />
         <Providers>{children}</Providers>
       </body>
     </html>
