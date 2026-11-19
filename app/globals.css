@@ -299,12 +299,7 @@ button {
 }
 
 .doodle-hero {
-  background:
-    radial-gradient(
-      circle at 50% 43%,
-      transparent 0 24%,
-      rgb(4 65 62 / 20%) 82%
-    ), #168d87;
+  background: #168d87;
   box-shadow: 0 0 0 100vmax #168d87;
   clip-path: inset(0 -100vmax);
   color: #f7f5ef;
@@ -320,12 +315,7 @@ button {
 }
 
 .theme-dark .doodle-hero {
-  background:
-    radial-gradient(
-      circle at 50% 43%,
-      rgb(19 90 84 / 18%) 0 20%,
-      rgb(0 13 12 / 45%) 84%
-    ), #082f2d;
+  background: #082f2d;
   box-shadow: 0 0 0 100vmax #082f2d;
 }
 
