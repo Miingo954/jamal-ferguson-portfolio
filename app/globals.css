@@ -170,6 +170,10 @@ button {
   text-align: center;
 }
 
+.theme-dark .portfolio-footer {
+  border-top-color: #edf5f0;
+}
+
 .nav-contact-cta,
 .mobile-nav-contact {
   border: 2px solid var(--color-ink);
