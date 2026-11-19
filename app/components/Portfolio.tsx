@@ -41,7 +41,7 @@ const projects = [
     mobilePreview: "/doodle/assets/mobile-antonios.jpg",
     accent: "#ff806f",
     live: "https://antonios-pizza.vercel.app",
-    github: "https://github.com/Miingo954/Antonio-s-Pizza",
+    github: "https://github.com/Miingo954/antonios-pizza",
     caseStudy: "/case-studies/antonios-pizza",
   },
   {
@@ -126,7 +126,7 @@ const projects = [
     mobilePreview: "/doodle/assets/mobile-ruff.jpg",
     accent: "#f6dc69",
     live: "https://ruff-pepper-shrimp.vercel.app",
-    github: "https://github.com/Miingo954/RUFF-Pepper-Shrimp",
+    github: "https://github.com/Miingo954/ruff-pepper-shrimp",
     caseStudy: "/case-studies/ruff-pepper-shrimp",
   },
 ];

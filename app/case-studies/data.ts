@@ -21,7 +21,7 @@ export const caseStudies: CaseStudy[] = [
       "A playful pizza builder that turns a familiar checkout flow into a visual, hands on interaction.",
     accent: "#ff806f",
     liveUrl: "https://antonios-pizza.vercel.app",
-    githubUrl: "https://github.com/Miingo954/Antonio-s-Pizza",
+    githubUrl: "https://github.com/Miingo954/antonios-pizza",
     stack: ["React", "Motion", "Routing", "Responsive UI"],
     sections: [
       {
@@ -59,7 +59,7 @@ export const caseStudies: CaseStudy[] = [
       "A responsive brand experience rooted in Jamaica, family memory, flavor, and the story behind the food.",
     accent: "#f6dc69",
     liveUrl: "https://ruff-pepper-shrimp.vercel.app",
-    githubUrl: "https://github.com/Miingo954/RUFF-Pepper-Shrimp",
+    githubUrl: "https://github.com/Miingo954/ruff-pepper-shrimp",
     stack: ["Brand design", "Storytelling", "Responsive UI", "Frontend"],
     sections: [
       {
