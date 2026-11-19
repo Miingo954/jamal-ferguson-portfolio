@@ -321,7 +321,7 @@ export default function Portfolio() {
               >
                 About
               </a>
-              <a className="transition hover:text-mint transition hover:-translate-y-0.5" href="#contact">
+              <a className="nav-contact-cta" href="#contact">
                 Contact
               </a>
             </nav>
@@ -379,7 +379,11 @@ export default function Portfolio() {
                     openContactDialog();
                   }
                 }}
-                className="rounded-lg px-4 py-3 text-soft transition hover:bg-mint/10 hover:text-mint"
+                className={
+                  label === "Contact"
+                    ? "mobile-nav-contact rounded-lg px-4 py-3"
+                    : "rounded-lg px-4 py-3 text-soft transition hover:bg-mint/10 hover:text-mint"
+                }
               >
                 {label}
               </a>
@@ -392,7 +396,7 @@ export default function Portfolio() {
         id="home"
         className="doodle-hero relative mx-auto grid min-h-[760px] max-w-7xl items-center gap-12 px-5 pb-20 pt-32 sm:px-8 lg:grid-cols-[1.15fr_.85fr] lg:px-12"
       >
-        <div className="pointer-events-none absolute inset-y-0 left-1/2 w-screen -translate-x-1/2 opacity-25 [background-image:radial-gradient(#0b7f6a_1px,transparent_1px)] [background-size:38px_38px] [mask-image:linear-gradient(to_bottom,black,transparent_80%)]" />
+        <div className="hero-grid-full pointer-events-none absolute inset-y-0 left-1/2 w-screen -translate-x-1/2" />
         <div className="hero-copy relative z-10 max-w-3xl">
           <p className="hero-eyebrow mb-5 font-mono text-sm font-semibold uppercase tracking-[0.24em] text-mint">
             Full-Stack Developer · Northern California
@@ -421,13 +425,13 @@ export default function Portfolio() {
           <div className="hero-actions mt-9 flex flex-wrap gap-4">
             <a
               href="#work"
-              className="rounded-md bg-mint px-6 py-3.5 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-ink"
+              className="rounded-md border border-white bg-transparent px-6 py-3.5 text-sm font-bold text-white transition hover:-translate-y-0.5"
             >
               View selected work
             </a>
             <a
               href="#contact"
-              className="rounded-md border border-mint px-6 py-3.5 text-sm font-bold text-mint transition hover:bg-mint/10"
+              className="rounded-md border border-white bg-white px-6 py-3.5 text-sm font-bold text-ink transition hover:-translate-y-0.5"
             >
               Let’s talk
             </a>
@@ -638,7 +642,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <footer className="portfolio-footer border-t border-ink/10 px-5 py-9 text-sm text-soft sm:px-8 lg:px-12">
+      <footer className="portfolio-footer px-5 py-9 text-sm text-soft sm:px-8 lg:px-12">
         <a className="footer-brand" href="#home" aria-label="Back to top">
           <Image
             className="footer-brand-logo"

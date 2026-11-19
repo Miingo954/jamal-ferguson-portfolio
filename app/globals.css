@@ -166,7 +166,38 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 0.8rem;
+  border-top: 2px solid #191918;
   text-align: center;
+}
+
+.nav-contact-cta,
+.mobile-nav-contact {
+  border: 2px solid var(--color-ink);
+  background: var(--color-mint);
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 var(--color-ink);
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.nav-contact-cta {
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+}
+
+.nav-contact-cta:hover,
+.nav-contact-cta:focus-visible,
+.mobile-nav-contact:hover,
+.mobile-nav-contact:focus-visible {
+  background: #ff806f;
+  color: #191918;
+  transform: translate(-1px, -2px);
+  box-shadow: 4px 5px 0 var(--color-ink);
 }
 
 .footer-links {
@@ -273,17 +304,19 @@ button {
       circle at 50% 43%,
       transparent 0 24%,
       rgb(4 65 62 / 20%) 82%
-    ),
-    linear-gradient(rgb(247 245 239 / 18%) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(247 245 239 / 18%) 1px, transparent 1px), #168d87;
-  background-size:
-    auto,
-    38px 38px,
-    38px 38px,
-    auto;
+    ), #168d87;
   box-shadow: 0 0 0 100vmax #168d87;
   clip-path: inset(0 -100vmax);
   color: #f7f5ef;
+}
+
+.hero-grid-full {
+  background-image:
+    linear-gradient(rgb(247 245 239 / 18%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(247 245 239 / 18%) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: linear-gradient(to bottom, #000, transparent 86%);
+  opacity: 0.72;
 }
 
 .theme-dark .doodle-hero {
@@ -292,15 +325,14 @@ button {
       circle at 50% 43%,
       rgb(19 90 84 / 18%) 0 20%,
       rgb(0 13 12 / 45%) 84%
-    ),
-    linear-gradient(rgb(247 245 239 / 8%) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(247 245 239 / 8%) 1px, transparent 1px), #082f2d;
-  background-size:
-    auto,
-    38px 38px,
-    38px 38px,
-    auto;
+    ), #082f2d;
   box-shadow: 0 0 0 100vmax #082f2d;
+}
+
+.theme-dark .hero-grid-full {
+  background-image:
+    linear-gradient(rgb(247 245 239 / 8%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(247 245 239 / 8%) 1px, transparent 1px);
 }
 
 .theme-dark .doodle-hero .hero-tools li {
@@ -318,21 +350,23 @@ button {
 }
 
 .doodle-hero .hero-actions a:first-child {
-  background: #f7f5ef;
-  color: #191918;
+  border-color: #f7f5ef;
+  background: transparent;
+  color: #f7f5ef;
 }
 
 .doodle-hero .hero-actions a:first-child:hover {
-  background: #ff806f;
+  background: rgb(247 245 239 / 12%);
 }
 
 .doodle-hero .hero-actions a:last-child {
   border-color: #f7f5ef;
-  color: #f7f5ef;
+  background: #f7f5ef;
+  color: #191918;
 }
 
 .doodle-hero .hero-actions a:last-child:hover {
-  background: rgb(247 245 239 / 12%);
+  background: #ff806f;
 }
 
 .doodle-hero .hero-tools li {
