@@ -24,6 +24,7 @@ import GitHubMark from "./GitHubMark";
 import type { AppDispatch, RootState } from "../store";
 import { setActiveFilter, toggleTheme } from "../store";
 import DraggableJam from "./DraggableJam";
+import LittleJamChat from "./LittleJamChat";
 import { MobileProjectMotion, MobileProjectPhone } from "./MobileProjectPreview";
 
 const projects = [
@@ -169,6 +170,8 @@ export default function Portfolio() {
   const [contactOpen, setContactOpen] = useState(false);
   const [contactOpening, setContactOpening] = useState(false);
   const [contactClosing, setContactClosing] = useState(false);
+  const [littleJamChatOpen, setLittleJamChatOpen] = useState(false);
+  const [littleJamActivity, setLittleJamActivity] = useState<"idle" | "thinking" | "speaking">("idle");
   const [typedText, setTypedText] = useState("");
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -305,7 +308,7 @@ export default function Portfolio() {
           </a>
           <div className="flex items-center gap-3 sm:gap-7">
             <nav
-              className="hidden items-center gap-7 text-sm text-soft sm:flex"
+              className="hidden items-center gap-4 text-sm text-soft sm:flex lg:gap-7"
               aria-label="Primary navigation"
             >
               <a className="transition hover:text-mint transition hover:-translate-y-0.5" href="#work">
@@ -320,6 +323,12 @@ export default function Portfolio() {
                 }}
               >
                 About
+              </a>
+              <a
+                className="transition hover:-translate-y-0.5 hover:text-mint"
+                href="#testimonials"
+              >
+                Testimonials
               </a>
               <a className="nav-contact-cta" href="#contact">
                 Contact
@@ -367,6 +376,7 @@ export default function Portfolio() {
             {[
               ["Work", "#work"],
               ["About", "#about"],
+              ["Testimonials", "#testimonials"],
               ["Contact", "#contact"],
             ].map(([label, href]) => (
               <a
@@ -399,7 +409,7 @@ export default function Portfolio() {
         <div className="hero-grid-full pointer-events-none absolute inset-y-0 left-1/2 w-screen -translate-x-1/2" />
         <div className="hero-copy relative z-10 max-w-3xl">
           <p className="hero-eyebrow mb-5 font-mono text-sm font-semibold uppercase tracking-[0.24em] text-mint">
-            Full-Stack Developer · Northern California
+            Front-End Developer · Northern California
           </p>
           <h1 className="hero-title text-5xl font-bold leading-[.96] tracking-[-0.055em] sm:text-7xl lg:text-[88px]">
             Thoughtful interfaces,
@@ -611,6 +621,48 @@ export default function Portfolio() {
       </section>
 
       <section
+        id="testimonials"
+        className="doodle-testimonial border-t-2 border-ink"
+        aria-labelledby="testimonial-heading"
+      >
+        <div className="testimonial-inner mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
+          <div className="testimonial-heading">
+            <p className="font-mono text-sm font-bold uppercase tracking-[0.22em] text-coral">
+              Client testimonial
+            </p>
+            <h2
+              id="testimonial-heading"
+              className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl"
+            >
+              Built around the client&apos;s vision.
+            </h2>
+          </div>
+
+          <figure className="testimonial-card">
+            <blockquote>
+              <p>
+                I couldn&apos;t be happier with the website Jamal created for my
+                business. The design is clean, modern, and professional, with
+                excellent attention to detail. He understood my vision and
+                brought it to life. The final result exceeded my expectations. I
+                highly recommend Jamal to anyone looking to establish or elevate
+                their online presence.
+              </p>
+            </blockquote>
+            <figcaption>
+              <span className="testimonial-avatar" aria-hidden="true">
+                MF
+              </span>
+              <span>
+                <strong>Michael Ferguson</strong>
+                <small>Owner, RUFF Pepper Shrimp</small>
+              </span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section
         id="contact"
         className="doodle-contact border-t-2 border-ink bg-coral text-white"
       >
@@ -683,7 +735,17 @@ export default function Portfolio() {
         <p className="footer-stack">React · Redux Toolkit · Tailwind CSS</p>
       </footer>
 
-      <DraggableJam onOpenContact={openContactDialog} />
+      <DraggableJam
+        onOpenContact={openContactDialog}
+        onOpenChat={() => setLittleJamChatOpen((open) => !open)}
+        chatOpen={littleJamChatOpen}
+        chatActivity={littleJamActivity}
+      />
+      <LittleJamChat
+        open={littleJamChatOpen}
+        onClose={() => setLittleJamChatOpen(false)}
+        onActivityChange={setLittleJamActivity}
+      />
 
       <dialog
         ref={contactDialogRef}
@@ -719,9 +781,10 @@ export default function Portfolio() {
             Frontend roots. <span>Full stack direction.</span>
           </h2>
           <p className="contact-modal-bio">
-            Hi, I’m Jamal Ferguson, a developer building thoughtful interfaces and
-            growing across the full stack. I connect responsive React products
-            to APIs, application logic, and data shaped by real user needs.
+            Hi, I’m Jamal Ferguson, a front-end developer focused on building
+            responsive, accessible React interfaces that feel clear and
+            intuitive. I’m expanding into APIs, server-side logic, and data as I
+            grow toward becoming a well-rounded full-stack developer.
           </p>
           <div className="contact-modal-skills" aria-label="Technical skills">
             {modalSkills.map((skill) => (

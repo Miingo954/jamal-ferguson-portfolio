@@ -18,9 +18,12 @@ const faceImages: Record<Face, string> = {
 
 type DraggableJamProps = {
   onOpenContact: () => void;
+  onOpenChat: () => void;
+  chatOpen: boolean;
+  chatActivity: "idle" | "thinking" | "speaking";
 };
 
-export default function DraggableJam({ onOpenContact }: DraggableJamProps) {
+export default function DraggableJam({ onOpenContact, onOpenChat, chatOpen, chatActivity }: DraggableJamProps) {
   const [free, setFree] = useState(false);
   const [face, setFace] = useState<Face>("open");
   const [dragging, setDragging] = useState(false);
@@ -62,14 +65,14 @@ export default function DraggableJam({ onOpenContact }: DraggableJamProps) {
   }, []);
 
   useEffect(() => {
-    if (dragging || released) return;
+    if (dragging || released || chatActivity !== "idle") return;
     let blinkTimer: ReturnType<typeof setTimeout>;
     const interval = window.setInterval(() => {
       setFace("blink");
       blinkTimer = setTimeout(() => setFace("open"), 180);
     }, 4200);
     return () => { clearInterval(interval); clearTimeout(blinkTimer); };
-  }, [dragging, released]);
+  }, [chatActivity, dragging, released]);
 
   useEffect(() => () => {
     if (animationFrame.current !== null) cancelAnimationFrame(animationFrame.current);
@@ -166,13 +169,19 @@ export default function DraggableJam({ onOpenContact }: DraggableJamProps) {
     faceTimer.current = setTimeout(() => setFace("open"), 650);
   };
 
+  const displayedFace = !dragging && !released && chatActivity === "thinking"
+    ? "idle"
+    : !dragging && !released && chatActivity === "speaking"
+      ? "wink"
+      : face;
+
   return (
     <>
       <button
         type="button"
-        aria-label="Drag Lil’ Jam to move him. Double-click to return him to the right side."
+        aria-label="Drag Little Jam to move him. Double-click to return him to the right side."
         ref={mascot}
-        className={`jam-mascot ${free ? "is-free" : ""} ${dragging ? "is-dragging" : ""} ${released ? "is-released" : ""}`}
+        className={`jam-mascot ${free ? "is-free" : ""} ${dragging ? "is-dragging" : ""} ${released ? "is-released" : ""} ${chatOpen ? "is-chat-open" : ""} is-${chatActivity}`}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
@@ -181,13 +190,28 @@ export default function DraggableJam({ onOpenContact }: DraggableJamProps) {
         onDoubleClick={handleDoubleClick}
       >
         <Image
-          src={faceImages[face]}
-          alt="Lil’ Jam, Jamal’s draggable portfolio mascot"
+          src={faceImages[displayedFace]}
+          alt="Little Jam, Jamal’s draggable portfolio mascot"
           width={190}
           height={190}
           priority
           draggable={false}
         />
+      </button>
+      <button
+        type="button"
+        className="jam-chat-bubble"
+        aria-label="Chat with Little Jam"
+        title="Chat with Little Jam"
+        aria-haspopup="dialog"
+        aria-expanded={chatOpen}
+        onClick={onOpenChat}
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 5.5h16v11H9l-5 3v-14Z" />
+          <path d="M8 10h8M8 13h5" />
+        </svg>
+        <span>Jam AI</span>
       </button>
       <button
         type="button"

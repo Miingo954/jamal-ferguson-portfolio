@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { brandIconData } from "./brand-icon-data";
 
-export const alt = "Jamal Ferguson — Full-Stack Software Developer";
+export const alt = "Jamal Ferguson — Front-End Software Developer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -48,7 +48,7 @@ export default function OpenGraphImage() {
             letterSpacing: 5,
           }}
         >
-          FULL-STACK SOFTWARE DEVELOPER
+          FRONT-END SOFTWARE DEVELOPER
         </div>
       </div>
     ),

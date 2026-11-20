@@ -24,6 +24,7 @@ function DisneyLivePreview() {
         src="https://disney-plus-clone-react-sepia.vercel.app/#/brand/disney"
         title="Disney Plus castle route animated preview"
         loading="lazy"
+        scrolling="no"
         tabIndex={-1}
       />
     </div>
