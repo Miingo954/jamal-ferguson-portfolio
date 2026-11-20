@@ -778,7 +778,7 @@ export default function Portfolio() {
         <div className="contact-modal-about">
           <p className="contact-modal-eyebrow">A little about me</p>
           <h2 id="contact-modal-about-title">
-            Frontend roots. <span>Full stack direction.</span>
+            Front-end roots. <span>Full-stack direction.</span>
           </h2>
           <p className="contact-modal-bio">
             Hi, I’m Jamal Ferguson, a front-end developer focused on building

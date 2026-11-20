@@ -23,7 +23,7 @@ const comicNeue = Comic_Neue({
 export const metadata: Metadata = {
   title: "Jamal Ferguson | Front-End Software Developer",
   description:
-    "Full-stack software developer building thoughtful, responsive products with React, Next.js, Node.js, APIs, and modern web technologies.",
+    "Front-end software developer building thoughtful, responsive products with React, Next.js, Node.js, APIs, and modern web technologies.",
   metadataBase: new URL("https://jamalferguson.dev"),
   icons: {
     icon: [

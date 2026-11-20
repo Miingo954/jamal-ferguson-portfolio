@@ -30,7 +30,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "My role",
-        body: "I designed and built the frontend experience, including the pizza customization flow, animated cutting board, cart interactions, and routed ordering screens.",
+        body: "I designed and built the front-end experience, including the pizza customization flow, animated cutting board, cart interactions, and routed ordering screens.",
       },
       {
         title: "Technical approach",
@@ -60,7 +60,7 @@ export const caseStudies: CaseStudy[] = [
     accent: "#f6dc69",
     liveUrl: "https://ruff-pepper-shrimp.vercel.app",
     githubUrl: "https://github.com/Miingo954/ruff-pepper-shrimp",
-    stack: ["Brand design", "Storytelling", "Responsive UI", "Frontend"],
+    stack: ["Brand design", "Storytelling", "Responsive UI", "Front-End"],
     sections: [
       {
         title: "The challenge",
@@ -68,7 +68,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "My role",
-        body: "I shaped the visual direction and built the responsive frontend, combining the product, family story, and Jamaican influence into one cohesive experience.",
+        body: "I shaped the visual direction and built the responsive front end, combining the product, family story, and Jamaican influence into one cohesive experience.",
       },
       {
         title: "Technical approach",
@@ -106,7 +106,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "My role",
-        body: "I built the React frontend and connected it to TMDB data for browsing, trailers, title pages, episode views, and saved titles.",
+        body: "I built the React front end and connected it to TMDB data for browsing, trailers, title pages, episode views, and saved titles.",
       },
       {
         title: "Technical approach",
